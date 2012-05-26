@@ -1,54 +1,40 @@
-# [HTML5 Boilerplate](http://html5boilerplate.com)
+# [layemout](http://adamholwerda.com/layemout)
 
-HTML5 Boilerplate is a professional front-end template that helps you build fast, robust, adaptable, and future-proof websites. Spend more time developing and less time reinventing the wheel.
+Layemout is the attempt at creating an intuitive web application to create comic books and strips. 
 
-This project is the product of many years of iterative development and combined community knowledge. It does not impose a specific development philosophy or framework, so you're free to architect your code in the way that you want.
-
-
-## Quick start
-
-Clone the git repo - `git clone git://github.com/h5bp/html5-boilerplate.git` - or [download it](https://github.com/h5bp/html5-boilerplate/zipball/master)
+This project is the product of about 3 hours of brainstorming and some initial goals.
 
 
-## Features
+## (Eventual)Features
 
-* HTML5 ready. Use the new elements with confidence.
-* Cross-browser compatible (Chrome, Opera, Safari, Firefox 3.6+, IE6+).
-* Designed with progressive enhancement in mind.
-* CSS normalizations and common bug fixes.
-* IE-specific classes for easier cross-browser control.
-* A default print stylesheet, performance optimized.
-* Mobile browser optimizations.
-* Protection against any stray `console.log` causing JavaScript errors in IE6/7.
-* The latest jQuery via CDN, with a local fallback.
-* A custom Modernizr build for feature detection.
-* An optimized Google Analytics snippet.
-* Apache server caching, compression, and other configuration defaults for Grade-A performance.
-* Cross-domain Ajax and Flash.
-* "Delete-key friendly." Easy to strip out parts you don't need.
-* Extensive inline and accompanying documentation.
+* Resizable panels give you an easy way to storyboard and plan out layouts
+* Randomize one of Wally Wood's 22 panels that always work
+* Upload an image from your computer to place inside of the panel
+* Delete, duplicate panels
+* Cross-platform compatible (So you can use on iPad, etc).
+* Publish your completed comic to a URL
+* Export to image, PDF
 
 
 ## Contributing
 
-Anyone and everyone is welcome to [contribute](https://github.com/h5bp/html5-boilerplate/wiki/contribute). Hundreds of developers have helped make the HTML5 Boilerplate what it is today.
+Anyone and everyone is welcome to [contribute](https://github.com/AdamHolwerda/layemout/issues). As it's about making comic books, I doubt I'm the only programmer who has a wishlist for an app like this.
 
 
 ## Project information
 
-* Source: http://github.com/h5bp/html5-boilerplate
-* Web: http://html5boilerplate.com
-* Docs: http://html5boilerplate.com/docs
-* Twitter: http://twitter.com/h5bp
-
+* Source: http://github.com/AdamHolwerda/layemout
+* Web: http://adamholwerda.com/layemout
 
 ## License
+
+* MIT: http://adamholwerda.com/layemout/LICENSE-MIT
 
 ### Major components:
 
 * jQuery: MIT/GPL license
-* Modernizr: MIT/BSD license
-* Normalize.css: Public Domain
+* jQuery UI: MIT/GPL license
+* Twitter Bootstrap: CC BY 3.0 license
 
 ### Everything else:
 

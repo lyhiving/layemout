@@ -231,7 +231,7 @@ background:#fff; z-index:5;}
 #toolsRight{width:210px; position:fixed; height:100%; width:210px; right:0px; top:0px; border-left:2px solid #ccc; z-index:4;}
 
 #logo {position:absolute; width:150px; bottom:25px; right:25px; color:#fff; background:#900; height:50px;
-border-radius:5px; text-align:center; line-height:50px;}
+border-radius:5px; text-align:center; line-height:50px; cursor:pointer;}
 
 #stageLeft {position:absolute; height:100%; background:#f9f9f9; top:0px;}
 #stageLeft .title {text-align:center;}
@@ -259,7 +259,7 @@ overflow-y:scroll;}
 #layoutContainer .panel:hover {border:1px solid #aaa;}
 #layoutContainer .panel.selectify{border:1px solid #900;}
 
-#shelf a {margin:0px auto;}
+.shelf a { float:left; clear:left; margin-left:10px; margin-top:5px; margin-bottom:5px;}
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

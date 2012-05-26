@@ -15,6 +15,15 @@ This project is the product of about 3 hours of brainstorming and some initial g
 * Publish your completed comic to a URL
 * Export to image, PDF
 
+## User Flow 
+* Choose a layout for your project
+* Pick a basic template or browse the template gallery
+* Upload drawings or start drawing
+* Drag panel handles to resize, scale and rotate drawings within frame
+* Active template change with images staying the same
+* Organize your book (watch it page flip), publish it to a URL
+* Export to image, PDF, save your template to the gallery
+
 
 ## Contributing
 

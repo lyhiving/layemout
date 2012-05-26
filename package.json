@@ -1,6 +1,6 @@
 {
   "name": "comicstrip",
-  "description": "An HTML5 comic book/strip layout and  editing app",
+  "description": "An HTML5 comic book/strip layout and editing app",
   "version": "0.1.0",
   "homepage": "https://github.com/Adam/comicstrip",
   "author": {
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Adam/comicstrip.git"
+    "url": "git://github.com/AdamHolwerda/layemout.git"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/Adam/comicstrip/blob/master/LICENSE-MIT"
+      "url": "https://github.com/AdamHolwerda/layemout/blob/master/LICENSE-MIT"
     }
   ],
   "dependencies": {

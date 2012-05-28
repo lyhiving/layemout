@@ -375,7 +375,10 @@ a.choose[data-type="spread"] {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.page-row {
+overflow:hidden;
 
+}
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

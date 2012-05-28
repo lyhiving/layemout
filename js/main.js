@@ -210,7 +210,7 @@ $('.selectify img').attr('src', 'wallywood/'+roll+'.png');
 
 $('#loadNewRow').live('click',function(){
 
-array = [1,2,3,4],
+array = [1,2,3,4,5],
 num = Math.floor(Math.random() * array.length),
 roll = array.splice(num, 1);
 

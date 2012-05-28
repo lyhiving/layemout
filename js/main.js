@@ -2,58 +2,30 @@
 Adam Holwerda
 */
 
-jQuery.fn.hammer = function(options)
-{
-    return this.each(function()
-    {
-        var hammer = new Hammer(this, options);
+function initRows(){
 
-        var $el = jQuery(this);
-        $el.data("hammer", hammer);
+$('#layoutContainer .page-row').each(function(){
+var a = $(this).index()+1;
+$(this).attr('data-order', a);
 
-        var events = ['hold','tap','doubletap','transformstart','transform','transformend','dragstart','drag','dragend','swipe','release'];
+var widthOfPage = $('.page').width(), //make row height
+convertToHeight = widthOfPage / .666,
+getaThird = Math.round(convertToHeight/3);
 
-        for(var e=0; e<events.length; e++) {
-            hammer['on'+ events[e]] = (function(el, eventName) {
-                return function(ev) {
-                    el.trigger(jQuery.Event(eventName, ev));
-                };
-            })($el, events[e]);
-        }
-    });
-};
+$(this).height(getaThird);
+
+});
+
+}
 
 function initPanels(){
 
 $('#layoutContainer .panel').each(function(){
 var ratio = $(this).width()/$(this).height();
-var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
-var num = Math.floor(Math.random() * array.length);
-var roll = array.splice(num, 1);
-$(this).attr('data-aspect', ratio).html("<img src = 'wallywood/"+roll+".png' /> ");
 
-$(this).resize(function(){
-
-var elem = $(this),
-elemHeight = elem.height(),
-elemWidth = elem.width(),
-aspect = elemWidth/elemHeight,
-image = elem.find('img'),
-imageHeight = image.height(),
-imageWidth = image.width(),
-imageAspect = imageWidth/imageHeight;
-
-image.css({'height': elemHeight+'px', 'width':elemWidth+'px'});
-
-elem.attr('data-aspect',aspect);
+$(this).attr('data-aspect',ratio).css('height','95%');
 
 });
-
-$(this).resize();
-
-});
-
-
 
 }
 
@@ -62,6 +34,15 @@ console.log('the editor for '+which+' has been launched.');
 
 }
 
+function wallyWood(){
+
+$('#layoutContainer .panel').each(function(){
+var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+var num = Math.floor(Math.random() * array.length);
+var roll = array.splice(num, 1);
+$(this).html("<img src = 'wallywood/"+roll+".png' /> ");
+});
+}
 
 function init(){
 
@@ -149,8 +130,9 @@ $('#layoutContainer .panel').width(a);
 if (project.type == 'page' || project.type =='spread'){ a = Math.floor(a/2.6+a); }
 
 	$('#layoutContainer .panel').height(a);
-
-	initPanels();
+initRows();
+initPanels();
+wallyWood();
 
 	});
 	
@@ -166,12 +148,24 @@ $(this).addClass('selectify');
 
 $('#layoutContainer .panel').live('mouseenter',function(){
 
-$(this).resizable({handles:'e, s'});
+$(this).resizable({handles:'e'});
 
 });
 
 
 $('#layoutContainer .panel').live('mouseleave ',function(){
+if ($(this).hasClass('ui-resizable')){
+	$(this).resizable('destroy'); }
+});
+
+$('#layoutContainer .page-row').live('mouseenter',function(){
+
+$(this).resizable({handles:'s'});
+
+});
+
+
+$('#layoutContainer .page-row').live('mouseleave ',function(){
 if ($(this).hasClass('ui-resizable')){
 	$(this).resizable('destroy'); }
 });
@@ -191,7 +185,7 @@ $('#duplicate').live('click', function(){
 
 var a = $('.selectify').clone();
 a.removeClass('selectify');
-a.insertAfter('.selectify').resizable('enable');
+a.insertAfter('.selectify');
 
 });
 
@@ -199,16 +193,11 @@ $('#deletify').live('click', function(){
 
 $('.selectify').remove();
 
-
 });
+
 
 $('#import').live('click', function(){});
 
-$('#layoutContainer.panel').live('resize', function(){
-
-var a = $(this).width(), b = $(this).height();
-$(this).attr('data-aspect', a/b);
-});
 
 $('#wallywood').live('click', function(){
 var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
@@ -218,15 +207,35 @@ $('.selectify img').attr('src', 'wallywood/'+roll+'.png');
 
 });
 
-$('#layoutContainer.panel').live('resize', function(){
 
-var a = $(this).width(), b = $(this).height();
-$(this).attr('data-aspect', a/b);
+$('#loadNewRow').live('click',function(){
+
+array = [1,2,3,4],
+num = Math.floor(Math.random() * array.length),
+roll = array.splice(num, 1);
+
+$('.selectify').parent().load('templates/template.html #r'+roll, function(data){
+	initRows();
+	initPanels();
+
+$('.loaded .panel').each(function(){
+var current = $(this);
+var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+var num = Math.floor(Math.random() * array.length);
+var roll = array.splice(num, 1);
+current.removeAttr('id').html("<img src = 'wallywood/"+roll+".png' /> ");
+
+
+$('.loaded .panel:first').addClass('selectify');
+
+}).unwrap('.loaded');
+
+
 });
 
 
 
-
+});
 
 });
 

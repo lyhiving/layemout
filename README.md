@@ -37,7 +37,7 @@ Anyone and everyone is welcome to [contribute](https://github.com/AdamHolwerda/l
 
 ## License
 
-* MIT: http://adamholwerda.com/layemout/LICENSE-MIT
+* MIT: https://github.com/AdamHolwerda/layemout/blob/master/LICENSE-MIT
 
 ### Major components:
 

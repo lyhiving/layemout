@@ -218,48 +218,164 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author: Adam Holwerda;
    ========================================================================== */
-
-#menuRight {transition: all 1s;
+#menuRight {
   -webkit-transition: all 1s;
-   -mozilla-transition: all 1s;
-   -ms-transition: all 1s;
-position:fixed; height:100%; width:210px; right:0px; top:0px; border-left:2px solid #ccc;
-background:#fff; z-index:5;}
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -ms-transition: all 1s;
+  transition: all 1s;
+  position: fixed;
+  height: 100%;
+  width: 210px;
+  right: 0px;
+  top: 0px;
+  border-left: 2px solid #ccc;
+  background: #fff;
+  z-index: 5;
+}
 
-#menuRight input {width:190px; margin-left:10px; margin-top:10px; text-align:center; font-size:110%; height:30px; margin-bottom:35px;}
+#menuRight input {
+  width: 190px;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 110%;
+  height: 30px;
+  margin-bottom: 35px;
+}
 
-#toolsRight{width:210px; position:fixed; height:100%; width:210px; right:0px; top:0px; border-left:2px solid #ccc; z-index:4;}
+#toolsRight {
+  width: 210px;
+  position: fixed;
+  height: 100%;
+  width: 210px;
+  right: 0px;
+  top: 0px;
+  border-left: 2px solid #ccc;
+  z-index: 4;
+}
 
-#logo {position:absolute; width:150px; bottom:25px; right:25px; color:#fff; background:#900; height:50px;
-border-radius:5px; text-align:center; line-height:50px; cursor:pointer;}
+#logo {
+  position: absolute;
+  width: 150px;
+  bottom: 25px;
+  right: 25px;
+  color: #fff;
+  background: #900;
+  height: 50px;
 
-#stageLeft {position:absolute; height:100%; background:#f9f9f9; top:0px;}
-#stageLeft .title {text-align:center;}
-.choose{margin-bottom:10px;}
-.panel{border:1px solid #ccc; }
-.choose:hover{ background:#f9f9f9;}
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
 
-a.choose[data-type="strip"]{ float:left; width:200px; height:60px; margin-left:5px;}
-a.choose[data-type="page"]{ float:left; width:150px; height:200px; margin-left:25px;}
-a.choose[data-type="spread"]{ float:left; width:180px; height:115px; margin-left:15px;}
+#stageLeft {
+  position: absolute;
+  height: 100%;
+  background: #f9f9f9;
+  top: 0px;
+}
 
-[data-type="strip"] .panel{float:left; width:31%; margin:1%;}
-[data-type="page"] .panel{float:left; width:31%; margin:1%;}
-[data-type="spread"] .page{float:left; width:50%; }
-[data-type="spread"] .page .panel{float:left; width:31%; margin:1%;}
+#stageLeft .title {
+  text-align: center;
+}
 
-.slide{margin-right:-190px;}
-.slide:hover{margin-right:0px;}
+.choose {
+  margin-bottom: 10px;
+}
 
-#layoutContainer{ width:100%;
-height:94%;
-overflow-y:scroll;}
+.panel {
+  border: 1px solid #ccc;
+overflow:hidden;
+}
 
-#layoutContainer .panel {background:#fff;}
-#layoutContainer .panel:hover {border:1px solid #aaa;}
-#layoutContainer .panel.selectify{border:1px solid #900;}
+.choose:hover {
+  background: #f9f9f9;
+}
 
-.shelf a { float:left; clear:left; margin-left:10px; margin-top:5px; margin-bottom:5px;}
+a.choose[data-type="strip"] {
+  float: left;
+  width: 200px;
+  height: 60px;
+  margin-left: 5px;
+}
+
+a.choose[data-type="page"] {
+  float: left;
+  width: 150px;
+  height: 200px;
+  margin-left: 25px;
+}
+
+a.choose[data-type="spread"] {
+  float: left;
+  width: 180px;
+  height: 115px;
+  margin-left: 15px;
+}
+
+[data-type="strip"] .panel {
+  float: left;
+  width: 31%;
+  margin: 1%;
+}
+
+[data-type="page"] .panel {
+  float: left;
+  width: 31%;
+  margin: 1%;
+}
+
+[data-type="spread"] .page {
+  float: left;
+  width: 50%;
+}
+
+[data-type="spread"] .page .panel {
+  float: left;
+  width: 31%;
+  margin: 1%;
+}
+
+.slide {
+  margin-right: -190px;
+}
+
+.slide:hover {
+  margin-right: 0px;
+}
+
+#layoutContainer {
+  width: 100%;
+  height: 94%;
+
+  -ms-overflow-y: scroll;
+  overflow-y: scroll;
+}
+
+#layoutContainer .panel {
+  background: #fff;
+}
+
+#layoutContainer .panel:hover {
+  border: 1px solid #aaa;
+}
+
+#layoutContainer .panel.selectify {
+  border: 1px solid #900;
+}
+
+.shelf a {
+  float: left;
+  clear: left;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

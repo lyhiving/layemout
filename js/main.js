@@ -48,13 +48,14 @@ console.log('the editor for '+which+' has been launched.');
 function wallyWood(){
 
 $('#layoutContainer .panel').each(function(){
+	if ($(this).find('img').length<1){
 	var current = $(this),
 	array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
 	num = Math.floor(Math.random() * array.length),
 	roll = array.splice(num, 1);
 
 current.html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".png' /> ");
-
+}
 });
 
 }
@@ -66,7 +67,10 @@ $('.ui-resizable').resizable('destroy');
 $('#layoutContainer .panel').each(function(){
 var current = $(this);
 	current.resizable({handles:'e, s'});
-current.find('img').draggable();
+current.find('img').draggable({
+   start: function(event, ui) { $('.selectify').removeClass('selectify');
+   $(this).parent().addClass('selectify'); }
+});
 
 });
 }
@@ -159,7 +163,7 @@ initPanels();
 $('#duplicate').click(function(){
 
 var a = $('.selectify'),
-b = a.find('img'),
+b = a.find('img').clone(),
 c = a.clone();
 c.empty().removeClass('selectify');
 c.insertAfter('.selectify').html(b);
@@ -177,7 +181,6 @@ var ratio = c.width()/c.height();
 
 bindUI();
 
-
 });
 
 $('#deletify').click(function(){
@@ -185,7 +188,6 @@ $('#deletify').click(function(){
 $('.selectify').remove();
 
 });
-
 
 $('#wallywood').click(function(){
 var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
@@ -209,17 +211,9 @@ roll = array.splice(num, 1);
 $('.selectify').parent().load('templates/template.html #r'+roll, function(data){
 	initRows();
 	initPanels();
+	wallyWood();
 
-$('.loaded .panel').each(function(){
-var current = $(this);
-var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
-var num = Math.floor(Math.random() * array.length);
-var roll = array.splice(num, 1);
-current.removeAttr('id').html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".png' /> ");
-
-$('.loaded .panel:first').addClass('selectify');
-
-}).unwrap('.loaded');
+$('.loaded .panel:first').addClass('selectify').unwrap('.loaded');
 
 bindUI();
 

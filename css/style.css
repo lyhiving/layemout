@@ -358,6 +358,7 @@ a.choose[data-type="spread"] {
 
 #layoutContainer .panel {
   background: #fff;
+  height:95%;
 }
 
 #layoutContainer .panel:hover {

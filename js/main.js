@@ -23,14 +23,14 @@ function initPanels(){
 $('#layoutContainer .panel').each(function(){
 var current = $(this);
 
-current.css('height','95%').click(function(){
+current.click(function(){
    $('.panel.selectify').removeClass('selectify'); //deselect all others
 current.addClass('selectify');
 }).dblclick(function(){
 	var a = current.index('#layoutContainer .panel'),
 	b = eval(a+1);
 	launchEditor(b);
-}).resizable({handles:'e'});
+});
 
 var ratio = current.width()/current.height();
 
@@ -48,11 +48,24 @@ console.log('the editor for '+which+' has been launched.');
 function wallyWood(){
 
 $('#layoutContainer .panel').each(function(){
-var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
-var num = Math.floor(Math.random() * array.length);
-var roll = array.splice(num, 1);
-$(this).html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".png' /> ");
-$(this).find('img').draggable();
+	var current = $(this),
+	array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+	num = Math.floor(Math.random() * array.length),
+	roll = array.splice(num, 1);
+
+current.html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".png' /> ");
+
+});
+
+}
+
+function bindUI(){
+
+$('#layoutContainer .panel').each(function(){
+var current = $(this);
+	current.resizable({handles:'e, s'});
+current.find('img').draggable();
+
 });
 }
 
@@ -83,16 +96,12 @@ $('#stageLeft').width(clientWidth-menuWidth);
 $('.choose').each(function(){
 var current = $(this),
  loadType = current.attr('data-type');
-console.log(loadType);
 $('[data-type="'+loadType+'"]').load('templates/template.html #'+loadType, function(){
-console.log(loadType+' is the type');
+
 var a = $('[data-type="'+loadType+'"] .panel'),
 b = a.width();
 
 if (loadType == 'page' || loadType =='spread'){ b = b/2.6+b; }
-
-console.log(a);
-console.log(b+'px');
 
 $('#'+loadType).removeAttr('id');
 $('[data-type="'+loadType+'"] .panel').height(b);
@@ -100,7 +109,6 @@ $('[data-type="'+loadType+'"] .panel').height(b);
 $('[title]').tooltip();
 
 });
-
 
 });
 
@@ -134,7 +142,7 @@ $('#layoutContainer').attr('data-type', project.type).load('templates/template.h
 initRows();
 initPanels();
 wallyWood();
-
+bindUI();
 	});
 
 });
@@ -151,6 +159,20 @@ $('#duplicate').click(function(){
 var a = $('.selectify').clone();
 a.removeClass('selectify');
 a.insertAfter('.selectify');
+
+a.click(function(){
+   $('.panel.selectify').removeClass('selectify'); //deselect all others
+a.addClass('selectify');
+}).dblclick(function(){
+	var a = current.index('#layoutContainer .panel'),
+	b = eval(a+1);
+	launchEditor(b);
+});
+var ratio = a.width()/a.height();
+
+a.attr('data-aspect', ratio).resizable('enable');
+a.find('img').draggable();
+
 
 });
 
@@ -191,15 +213,12 @@ var num = Math.floor(Math.random() * array.length);
 var roll = array.splice(num, 1);
 current.removeAttr('id').html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".png' /> ");
 
-
 $('.loaded .panel:first').addClass('selectify');
 
 }).unwrap('.loaded');
 
 
 });
-
-
 
 });
 

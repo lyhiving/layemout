@@ -61,6 +61,8 @@ current.html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".pn
 
 function bindUI(){
 
+$('.ui-resizable').resizable('destroy');
+
 $('#layoutContainer .panel').each(function(){
 var current = $(this);
 	current.resizable({handles:'e, s'});
@@ -156,22 +158,24 @@ initPanels();
 
 $('#duplicate').click(function(){
 
-var a = $('.selectify').clone();
-a.removeClass('selectify');
-a.insertAfter('.selectify');
+var a = $('.selectify'),
+b = a.find('img'),
+c = a.clone();
+c.empty().removeClass('selectify');
+c.insertAfter('.selectify').html(b);
 
-a.click(function(){
+c.click(function(){
    $('.panel.selectify').removeClass('selectify'); //deselect all others
-a.addClass('selectify');
+c.addClass('selectify');
 }).dblclick(function(){
 	var a = current.index('#layoutContainer .panel'),
 	b = eval(a+1);
 	launchEditor(b);
 });
-var ratio = a.width()/a.height();
 
-a.attr('data-aspect', ratio).resizable('enable');
-a.find('img').draggable();
+var ratio = c.width()/c.height();
+
+bindUI();
 
 
 });
@@ -217,6 +221,7 @@ $('.loaded .panel:first').addClass('selectify');
 
 }).unwrap('.loaded');
 
+bindUI();
 
 });
 

@@ -12,7 +12,7 @@ var widthOfPage = $('.page').width(), //make row height
 convertToHeight = widthOfPage / .666,
 getaThird = Math.round(convertToHeight/3);
 
-$(this).height(getaThird);
+$(this).height(getaThird).resizable({handles:'s'});
 
 });
 
@@ -21,9 +21,20 @@ $(this).height(getaThird);
 function initPanels(){
 
 $('#layoutContainer .panel').each(function(){
-var ratio = $(this).width()/$(this).height();
+var current = $(this);
 
-$(this).attr('data-aspect',ratio).css('height','95%');
+current.css('height','95%').click(function(){
+   $('.panel.selectify').removeClass('selectify'); //deselect all others
+current.addClass('selectify');
+}).dblclick(function(){
+	var a = current.index('#layoutContainer .panel'),
+	b = eval(a+1);
+	launchEditor(b);
+}).resizable({handles:'e'});
+
+var ratio = current.width()/current.height();
+
+current.attr('data-aspect', ratio);
 
 });
 
@@ -40,7 +51,8 @@ $('#layoutContainer .panel').each(function(){
 var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
 var num = Math.floor(Math.random() * array.length);
 var roll = array.splice(num, 1);
-$(this).html("<img src = 'wallywood/"+roll+".png' /> ");
+$(this).html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".png' /> ");
+$(this).find('img').draggable();
 });
 }
 
@@ -98,8 +110,8 @@ $('.choose').bind('touchstart', function(){
  $(this).trigger('click');
 
 });
-}
 
+}
 
 $(document).ready(function(){
 
@@ -107,81 +119,34 @@ init();
 
 var project = {};
 
-
 $('#projTitle').keyup(function(){
 var a = $(this).val();
 project.title = a;
-
+$('#stageLeft .title').text(project.title);
 });
 
 $('.choose').click(function(){
 
 project.type = $(this).attr('data-type');
+$('#menuRight').addClass('slide');
+$('#layoutContainer').attr('data-type', project.type).load('templates/template.html #'+project.type, function(){
 
-});
-
-$('#logo').click(function(){
-	$('#menuRight').addClass('slide');
-	$('#stageLeft .title').text(project.title);
-	$('#layoutContainer').attr('data-type', project.type).load('templates/template.html #'+project.type, function(){
-
-	var a = $('#layoutContainer .panel').width();
-$('#layoutContainer .panel').width(a);
-if (project.type == 'page' || project.type =='spread'){ a = Math.floor(a/2.6+a); }
-
-	$('#layoutContainer .panel').height(a);
 initRows();
 initPanels();
 wallyWood();
 
 	});
+
+});
+
+$('#logo').click(function(){
+
+initPanels();
 	
 });
 
-$('#layoutContainer .panel').live('click',function(){
 
-$('.panel.selectify').removeClass('selectify'); //deselect all others
-$(this).addClass('selectify');
-
-});
-
-
-$('#layoutContainer .panel').live('mouseenter',function(){
-
-$(this).resizable({handles:'e'});
-
-});
-
-
-$('#layoutContainer .panel').live('mouseleave ',function(){
-if ($(this).hasClass('ui-resizable')){
-	$(this).resizable('destroy'); }
-});
-
-$('#layoutContainer .page-row').live('mouseenter',function(){
-
-$(this).resizable({handles:'s'});
-
-});
-
-
-$('#layoutContainer .page-row').live('mouseleave ',function(){
-if ($(this).hasClass('ui-resizable')){
-	$(this).resizable('destroy'); }
-});
-
-
-$('#layoutContainer .panel').live('dblclick',function(){
-
-var a = $(this).index('#layoutContainer .panel'),
-b = eval(a+1);
-
-launchEditor(b);
-
-});
-
-
-$('#duplicate').live('click', function(){
+$('#duplicate').click(function(){
 
 var a = $('.selectify').clone();
 a.removeClass('selectify');
@@ -189,28 +154,29 @@ a.insertAfter('.selectify');
 
 });
 
-$('#deletify').live('click', function(){
+$('#deletify').click(function(){
 
 $('.selectify').remove();
 
 });
 
 
-$('#import').live('click', function(){});
-
-
-$('#wallywood').live('click', function(){
+$('#wallywood').click(function(){
 var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
 var num = Math.floor(Math.random() * array.length);
 var roll = array.splice(num, 1);
-$('.selectify img').attr('src', 'wallywood/'+roll+'.png');
+$('.selectify img').attr('src', 'http://adamholwerda.com/layemout/wallywood/'+roll+'.png');
 
 });
 
+$('#openPixlr').click(function(){
+var a = $('.selectify img').attr('src');
+$(this).attr('target','_blank').attr('href','http://pixlr.com/editor?image='+a).trigger('click');
+});
 
-$('#loadNewRow').live('click',function(){
+$('#loadNewRow').click(function(){
 
-array = [1,2,3,4,5],
+array = [1,2,3,4,5,6],
 num = Math.floor(Math.random() * array.length),
 roll = array.splice(num, 1);
 
@@ -223,7 +189,7 @@ var current = $(this);
 var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
 var num = Math.floor(Math.random() * array.length);
 var roll = array.splice(num, 1);
-current.removeAttr('id').html("<img src = 'wallywood/"+roll+".png' /> ");
+current.removeAttr('id').html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".png' /> ");
 
 
 $('.loaded .panel:first').addClass('selectify');

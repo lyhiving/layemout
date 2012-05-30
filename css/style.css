@@ -263,6 +263,7 @@ td { vertical-align: top; }
   color: #fff;
   background: #900;
   height: 50px;
+  z-index:50;
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -376,6 +377,10 @@ a.choose[data-type="spread"] {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.shelf input[type=text]{padding:12px; margin-left:10px; width:150px; text-align:center;}
+.shelf textarea {margin-left:10px; padding:5px; width:150px; height:100px; margin-top:10px; }
+
 .page-row {
 overflow:hidden;
 
@@ -433,7 +438,7 @@ overflow:hidden;
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
   thead { display: table-header-group; } /* h5bp.com/t */
   tr, img { page-break-inside: avoid; }
-  img { max-width: 100% !important; }
+  /*img { max-width: 100% !important; } */
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }

@@ -202,8 +202,10 @@ if ($('.selectify').length < 1){ alertSelect(); } else {
 var a = $('.selectify'),
 b = a.find('img').clone(),
 c = a.clone();
-c.empty().removeClass('selectify');
-c.insertAfter('.selectify').html(b);
+c.empty().removeClass('selectify').removeClass('ui-resizable');
+c.insertAfter('.selectify').html(b).resizable({handles:'e, s'});
+
+c.find('img').draggable();
 
 c.click(function(){
    $('.panel.selectify').removeClass('selectify'); //deselect all others
@@ -215,7 +217,6 @@ c.addClass('selectify');
 	launchEditor(b);
 });
 
-var ratio = c.width()/c.height();
 
 }
 });
@@ -266,7 +267,7 @@ if (isNumber(a)){
 });
 
 $('#rotate').keyup(function(){
-	if ($('.selectify').length < 1){ alertSelect(); }else {
+	if ($('.selectify').length < 1){ alertSelect(); } else {
 
 var a = $(this).val(),
 b = $('.selectify img');

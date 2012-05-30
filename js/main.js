@@ -10,13 +10,13 @@ function initRows(){
 
 $('#layoutContainer .page-row').each(function(){
 var a = $(this).index()+1;
-$(this).attr('data-order', a);
+$(this).attr('data-order', a); // give every row a data-order, so we can make them sortable later
 
-var widthOfPage = $('.page').width(), //make row height
+var widthOfPage = $('.page').width(), //make row height based on comic book aspect ratio
 convertToHeight = widthOfPage / .666,
 getaThird = Math.round(convertToHeight/3);
 
-$(this).height(getaThird).resizable({handles:'s'});
+$(this).height(getaThird).resizable({handles:'s'}); //make the row resizable up and down
 
 });
 
@@ -24,13 +24,13 @@ $(this).height(getaThird).resizable({handles:'s'});
 
 function alertSelect(){alert('You gotta select a panel first, bro'); }
 
-function refreshInputs(){
-var a = $('.selectify'),
-b = $('.selectify img'),
-c = b.attr('data-original-width'),
-d = b.width(),
-e = b.css('rotate'),
-g = b.attr('src');
+function refreshInputs(){ //every time we select a panel, fill the text inputs with the correct stuff
+var a = $('.selectify'), //panel
+b = $('.selectify img'), //panel's image
+c = b.attr('data-original-width'), //image's original width
+d = b.width(), //get the image's current width
+e = b.css('rotate'), //image's rotation
+g = b.attr('src'); //image's source
 
 $('#scale').val(Math.round((d/c)*100)/100);
 $('#rotate').val(e);
@@ -39,7 +39,7 @@ $('#source').text(g);
 
 function initPanels(){
 
-$('#layoutContainer .panel').each(function(){
+$('#layoutContainer .panel').each(function(){ //for every panel, set up event handlers
 var current = $(this);
 
 current.click(function(){
@@ -53,10 +53,10 @@ refreshInputs();
 }).dblclick(function(){
 	var a = current.index('#layoutContainer .panel'),
 	b = eval(a+1);
-	launchEditor(b);
+	launchEditor(b); //this would be where we'd launch the image-editor / drawing program
 });
 
-var ratio = current.width()/current.height();
+var ratio = current.width()/current.height(); //get aspect ratio, not sure what this is used for yet
 
 current.attr('data-aspect', ratio).attr('data-original-width', current.width());
 
@@ -65,16 +65,16 @@ current.attr('data-aspect', ratio).attr('data-original-width', current.width());
 }
 
 function launchEditor(which){
-console.log('the editor for '+which+' has been launched.');
+console.log('the editor for '+which+' has been launched.'); //dummy console log
 
 }
 
-function wallyWood(){
+function wallyWood(){ //give each panel an initial image based on one of Wally Wood's 22 panels
 
 $('#layoutContainer .panel').each(function(){
 	if ($(this).find('img').length<1){
 	var current = $(this),
-	array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+	array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23], //for some reason there's 23 panels
 	num = Math.floor(Math.random() * array.length),
 	roll = array.splice(num, 1);
 
@@ -87,17 +87,17 @@ current.html("<img src = 'http://adamholwerda.com/layemout/wallywood/"+roll+".pn
 
 function bindUI(){
 
-$('.ui-resizable').resizable('destroy');
+$('.ui-resizable').resizable('destroy'); //get rid of ui-resizable();
 
 $('#layoutContainer .panel').each(function(){
 var current = $(this);
-	current.resizable({handles:'e, s'});
-	current.find('img').draggable({
+	current.resizable({handles:'e, s'}); //re-initiate resizable()
+	current.find('img').draggable({ //initiate draggable() for images within panels
    start: function(event, ui) { $('.selectify').removeClass('selectify');
   
-   $(this).parent().addClass('selectify');
+   $(this).parent().addClass('selectify'); //every time we start dragging an image, the parent panel should be selected
 
-	refreshInputs();
+	refreshInputs(); //since there's a new selection, we have to reset the inputs
 
 }
 });
@@ -105,7 +105,7 @@ var current = $(this);
 });
 }
 
-function init(){
+function init(){ //basic page setup stuff
 
 var clientHeight = $(window).height(),
 clientWidth = $(window).width(),
@@ -132,7 +132,7 @@ $(this).height(getaThird).resizable({handles:'s'});
 
 });
 
-$('.choose').each(function(){
+$('.choose').each(function(){ //setting up the project template picker
 var current = $(this),
  loadType = current.attr('data-type');
 $('[data-type="'+loadType+'"]').load('templates/template.html #'+loadType, function(){

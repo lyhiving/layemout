@@ -38,9 +38,16 @@
     <div id = "layoutContainer"></div>
   </div>
    <div id = "toolsRight">
-<div class = "preview"></div>
-<h3 style = "text-align:center;">Panel options</h3>
 <div class = "shelf">
+
+<div style = "display:none;">
+<h3 style = "text-align:center;">Project options</h3>
+<div class = "preview"></div>
+<input type = "text" id = "zoom" />
+</div>
+
+<h3 style = "text-align:center;">Panel options</h3>
+
 <a href = "#" class = "btn btn-info" id = "duplicate">Duplicate</a><br>
 <a href = "#" class = "btn btn-info" id = "deletify">Delete</a><br>
 <a href = "#" class = 'btn btn-info' id='wallywood'>Reroll Wally Wood</a>
@@ -72,8 +79,8 @@
   <!-- scripts concatenated and minified via build script -->
   <script src="js/jquery-ui/js/jquery-ui-1.8.20.custom.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/plugins.min.js"></script>
+  <script src="js/main.min.js"></script>
   <!-- end scripts -->
 
 </body>

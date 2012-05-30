@@ -39,12 +39,16 @@
   </div>
    <div id = "toolsRight">
 <div class = "preview"></div>
+<h3 style = "text-align:center;">Panel options</h3>
 <div class = "shelf">
 <a href = "#" class = "btn btn-info" id = "duplicate">Duplicate</a><br>
 <a href = "#" class = "btn btn-info" id = "deletify">Delete</a><br>
 <a href = "#" class = 'btn btn-info' id='wallywood'>Reroll Wally Wood</a>
 <a href = "#" class = 'btn btn-info' id = "loadNewRow">Reroll row layout</a>
  <a href = "#" class = 'btn btn-info' id = "openPixlr">Edit in Pixlr</a>
+<textarea title = "image source" id = "source" placeholder = "select a panel"  ></textarea>
+<input type = "text" title = "image scale" id = "scale" placeholder = "1.x" />
+<input type = "text" title = "image rotation" id = "rotate" placeholder = "x degrees"  />
     </div>
    </div>
   <div id = "menuRight">
@@ -54,21 +58,20 @@
     <a href = "#" class = "choose" data-type ="page"></a>
     <a href = "#" class = "choose" data-type ="spread"></a>
 
-<div id = "logo">Lay 'em out!</div>
+
 
   </div>
-  
+  <div id = "logo">Lay 'em out!</div>
   <!-- JavaScript at the bottom for fast page loading: http://developer.yahoo.com/performance/rules.html#js_bottom -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
 
-<script src="js/jquery-ui/js/jquery-ui-1.8.20.custom.min.js"></script>
 
   <!-- scripts concatenated and minified via build script -->
+  <script src="js/jquery-ui/js/jquery-ui-1.8.20.custom.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-    <script src="js/hammer.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
   <!-- end scripts -->

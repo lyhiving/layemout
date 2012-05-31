@@ -91,7 +91,7 @@ $('.ui-resizable').resizable('destroy'); //get rid of ui-resizable();
 
 $('#layoutContainer .panel').each(function(){
 var current = $(this);
-	current.resizable({handles:'e, s'}); //re-initiate resizable()
+	current.resizable({handles:'e, se, s'}); //re-initiate resizable()
 	current.find('img').draggable({ //initiate draggable() for images within panels
    start: function(event, ui) { $('.selectify').removeClass('selectify');
   
@@ -203,7 +203,7 @@ var a = $('.selectify'),
 b = a.find('img').clone(),
 c = a.clone();
 c.empty().removeClass('selectify').removeClass('ui-resizable');
-c.insertAfter('.selectify').html(b).resizable({handles:'e, s'});
+c.insertAfter('.selectify').html(b).resizable({handles:'e, se, s'});
 
 c.find('img').draggable();
 

@@ -1,8 +1,6 @@
-# [layemout](http://adamholwerda.com/layemout)
+# [layemout](http://adamholwerda.github.com/layemout)
 
-Layemout is the attempt at creating an intuitive web application to create comic books and strips. 
-
-This project is the product of about 3 hours of brainstorming and some initial goals.
+Layemout is the attempt at creating an intuitive web application to create comic books and strips using HTML5, CSS3 and localStorage(). 
 
 
 ## (Eventual)Features
@@ -27,13 +25,13 @@ This project is the product of about 3 hours of brainstorming and some initial g
 
 ## Contributing
 
-Anyone and everyone is welcome to [contribute](https://github.com/AdamHolwerda/layemout/issues). As it's about making comic books, I doubt I'm the only programmer who has a wishlist for an app like this.
+Anyone and everyone is welcome to [contribute](https://github.com/AdamHolwerda/layemout/issues). As it's about making comic books or and webcomics I doubt I'm the only programmer who has a wishlist for an app like this.
 
 
 ## Project information
 
 * Source: http://github.com/AdamHolwerda/layemout
-* Web: http://adamholwerda.com/layemout
+* Web: http://adamholwerda.github.com/layemout
 
 ## License
 

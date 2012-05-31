@@ -74,7 +74,7 @@ function wallyWood(){ //give each panel an initial image based on one of Wally W
 $('#layoutContainer .panel').each(function(){
 	if ($(this).find('img').length<1){
 	var current = $(this),
-	array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23], //for some reason there's 23 panels
+	array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22],
 	num = Math.floor(Math.random() * array.length),
 	roll = array.splice(num, 1);
 
@@ -229,9 +229,9 @@ $('.selectify').remove();
 
 $('#wallywood').click(function(){
 	if ($('.selectify').length < 1){ alertSelect(); } else {
-var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
-var num = Math.floor(Math.random() * array.length);
-var roll = array.splice(num, 1);
+var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22],
+ num = Math.floor(Math.random() * array.length),
+ roll = array.splice(num, 1);
 $('.selectify img').attr('src', 'http://adamholwerda.com/layemout/wallywood/'+roll+'.png');
 }
 });
@@ -276,6 +276,25 @@ b = $('.selectify img');
 }
 });
 
+
+$('#flipperX').click(function(){
+	if ($('.selectify').length < 1){ alertSelect(); } else {
+
+var b = $('.selectify img');
+
+	b.css('rotateX','+=180deg');
+}
+});
+
+
+$('#flipperX').click(function(){
+	if ($('.selectify').length < 1){ alertSelect(); } else {
+
+var b = $('.selectify img');
+
+	b.css('rotateY','+=180deg');
+}
+});
 
 $('#loadNewRow').click(function(){
 if ($('.selectify').length < 1){ alertSelect(); } else {

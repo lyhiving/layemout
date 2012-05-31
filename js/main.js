@@ -288,9 +288,20 @@ $('.selectify').parent().load('templates/template.html #r'+roll, function(data){
 	initPanels();
 	wallyWood();
 
+$(".loaded .panel img").one('load', function() {
+
+var a = $(this);
+ myOrigWidth = a.width();
+ a.attr('data-original-width', myOrigWidth).css('rotate', '0deg');
+
+}).each(function() {
+  if(this.complete) $(this).load();
+});
+
 $('.loaded .panel:first').addClass('selectify').unwrap('.loaded');
 
 bindUI();
+
 
 });
 

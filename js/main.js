@@ -287,7 +287,7 @@ var b = $('.selectify img');
 });
 
 
-$('#flipperX').click(function(){
+$('#flipperY').click(function(){
 	if ($('.selectify').length < 1){ alertSelect(); } else {
 
 var b = $('.selectify img');

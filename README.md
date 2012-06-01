@@ -1,4 +1,4 @@
-# [layemout](http://adamholwerda.com/layemout)
+# [layemout](http://adamholwerda.github.com/layemout)
 
 Layemout is the attempt at creating an intuitive web application to create comic books and strips. 
 
@@ -33,7 +33,7 @@ Anyone and everyone is welcome to [contribute](https://github.com/AdamHolwerda/l
 ## Project information
 
 * Source: http://github.com/AdamHolwerda/layemout
-* Web: http://adamholwerda.com/layemout
+* Web: http://adamholwerda.github.com/layemout
 
 ## License
 

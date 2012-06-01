@@ -3,7 +3,7 @@
 Layemout is the attempt at creating an intuitive web application to create comic books and strips using HTML5, CSS3 and localStorage(). 
 
 
-## (Eventual)Features
+## (Eventual) Features
 
 * Resizable panels give you an easy way to storyboard and plan out layouts
 * Randomize one of Wally Wood's 22 panels that always work

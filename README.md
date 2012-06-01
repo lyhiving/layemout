@@ -5,7 +5,7 @@ Layemout is the attempt at creating an intuitive web application to create comic
 This project is the product of about 3 hours of brainstorming and some initial goals.
 
 
-## (Eventual)Features
+## (Eventual) Features
 
 * Resizable panels give you an easy way to storyboard and plan out layouts
 * Randomize one of Wally Wood's 22 panels that always work

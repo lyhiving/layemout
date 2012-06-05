@@ -39,7 +39,10 @@ function refreshInputs() { //every time we select a panel, fill the text inputs 
 		e = b.css('rotate'),
 		//image's rotation
 		g = b.attr('src'); //image's source
-	$('#scale').val(Math.round((d / c) * 100) / 100);
+
+if (e !== undefined){e = e.replace('deg','');}
+
+	$('#scale').val(Math.round((d / c) * 100) );
 	$('#rotate').val(e);
 	$('#source').text(g);
 }

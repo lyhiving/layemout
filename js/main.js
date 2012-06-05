@@ -258,35 +258,6 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#scale').change(function() {
-		if ($('.selectify').length < 1) {
-			alertSelect();
-		} else {
-
-			var a = $(this).val()/100,
-				b = $('.selectify img'),
-				c = b.attr('data-original-width');
-
-			if (isNumber(a)) {
-				b.width(c * a);
-			} else {
-				b.width(c);
-			}
-		}
-	});
-
-	$('#rotate').change(function() {
-		if ($('.selectify').length < 1) {
-			alertSelect();
-		} else {
-
-			var a = $(this).val(),
-				b = $('.selectify img');
-
-			b.css('rotate', a);
-		}
-	});
-
 
 	$('#flipperX').click(function() {
 		if ($('.selectify').length < 1) {
@@ -345,13 +316,37 @@ $(document).ready(function() {
 
 $("#rotate").knob({
 	'min':0,
-	'max':360
+	'max':360,
+	'change':function(v,ipt) { if ($('.selectify').length < 1) {
+			alertSelect();
+		} else {
+
+			var a = v,
+				b = $('.selectify img');
+
+			b.css('rotate', a);
+		} }
+
                 });
 
 
 $("#scale").knob({
 	'min':100,
-	'max':1000
+	'max':1000,
+	'change':function(v,ipt) { if ($('.selectify').length < 1) {
+			alertSelect();
+		} else {
+
+			var a = v/100,
+				b = $('.selectify img'),
+				c = b.attr('data-original-width');
+
+			if (isNumber(a)) {
+				b.width(c * a);
+			} else {
+				b.width(c);
+			}
+		} }
                 });
 
 });

@@ -334,7 +334,7 @@ $("#rotate").knob({
 
 
 $("#scale").knob({
-	'min':100,
+	'min':1,
 	'max':1000,
 	'change':function(v,ipt) { if ($('.selectify').length < 1) {
 			alertSelect();

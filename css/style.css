@@ -378,7 +378,7 @@ a.choose[data-type="spread"] {
   margin-bottom: 5px;
 }
 
-.shelf input[type=text]{padding:12px; margin-left:10px; width:150px; text-align:center;}
+/*.shelf input[type=text]{padding:12px; margin-left:10px; width:150px; text-align:center;}*/
 .shelf textarea {margin-left:10px; padding:5px; width:150px; height:100px; margin-top:10px; }
 
 .page-row {

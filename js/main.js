@@ -343,4 +343,9 @@ $(document).ready(function() {
 
 	});
 
+$("#rotate").knob({
+	'min':0,
+	'max':360
+                });
+
 });

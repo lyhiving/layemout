@@ -258,12 +258,12 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#scale').keyup(function() {
+	$('#scale').change(function() {
 		if ($('.selectify').length < 1) {
 			alertSelect();
 		} else {
 
-			var a = $(this).val(),
+			var a = $(this).val()/100,
 				b = $('.selectify img'),
 				c = b.attr('data-original-width');
 
@@ -275,7 +275,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#rotate').keyup(function() {
+	$('#rotate').change(function() {
 		if ($('.selectify').length < 1) {
 			alertSelect();
 		} else {
@@ -346,6 +346,12 @@ $(document).ready(function() {
 $("#rotate").knob({
 	'min':0,
 	'max':360
+                });
+
+
+$("#scale").knob({
+	'min':100,
+	'max':1000
                 });
 
 });
